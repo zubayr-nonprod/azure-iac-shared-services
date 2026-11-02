@@ -1,0 +1,8 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY.
+# Run `copier update` in the scaffolded repo to pull template improvements.
+_src_path: ./scaffolding/copier-template
+cloud_provider: azure
+description: ''
+repo_name: azure-iac-shared-services
+workspace_name: default
+
