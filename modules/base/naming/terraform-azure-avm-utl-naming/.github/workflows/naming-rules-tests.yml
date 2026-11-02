@@ -1,0 +1,51 @@
+name: Naming rules tests
+
+on:
+  pull_request:
+    paths:
+      - "scripts/ResourceName*.psm1"
+      - "scripts/*-ResourceNameRules.ps1"
+      - "scripts/tests/**"
+      - "data/resource-name-rules*.json"
+      - "schemas/**"
+      - "examples/**/naming-overrides.json"
+      - "tests/unit/fixtures/**"
+      - ".vscode/settings.json"
+      - ".github/workflows/update-resource-name-rules.yml"
+      - ".github/workflows/naming-rules-tests.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/ResourceName*.psm1"
+      - "scripts/*-ResourceNameRules.ps1"
+      - "scripts/tests/**"
+      - "data/resource-name-rules*.json"
+      - "schemas/**"
+      - "examples/**/naming-overrides.json"
+      - "tests/unit/fixtures/**"
+      - ".vscode/settings.json"
+      - ".github/workflows/update-resource-name-rules.yml"
+      - ".github/workflows/naming-rules-tests.yml"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out the proposed code without persisting credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Test parser and mocked publication without network or Azure access
+        run: .\scripts\tests\Test-ResourceNameRules.ps1
+      - name: Test naming schemas and representative overlays
+        run: .\scripts\tests\Test-NamingSchemas.ps1
