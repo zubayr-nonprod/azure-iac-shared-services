@@ -3,7 +3,7 @@
 
 locals {
   common_tags = {
-    ManagedBy   = "Terraform"
-    Environment = var.environment
+    Project     = "shared-services"
+    Environment = "prod"
   }
 }
