@@ -7,3 +7,15 @@ locals {
     Environment = "prod"
   }
 }
+
+locals {
+  location = "northeurope"
+  environment = "prod"
+
+  rg_names = {
+    storage  = "storage"
+    network  = "network"
+    compute  = "compute"
+    security = "security"
+  }
+}
