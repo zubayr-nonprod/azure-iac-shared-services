@@ -10,6 +10,6 @@ locals {
     Environment = local.environment
   }
 
-  location = "westeurope"
+  location = "northeurope"
   environment = "prod"
 }
