@@ -1,9 +1,15 @@
 # locals.tf
 # Local values used across the root module.
 
+# locals.tf
+# Local values used across the root module.
+
 locals {
   common_tags = {
-    ManagedBy   = "Terraform"
-    Environment = var.environment
+    Project     = "shared-services"
+    Environment = local.environment
   }
+
+  location = "northeurope"
+  environment = "prod"
 }

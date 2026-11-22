@@ -1,0 +1,20 @@
+# Pod spec fragment: run Backstage on the spot pool, but fall back to the
+# system node if spot capacity is unavailable.
+# With the community Backstage Helm chart, put these under `backstage:` in your
+# values file; with plain manifests, put them under spec.template.spec.
+tolerations:
+  - key: kubernetes.azure.com/scalesetpriority
+    operator: Equal
+    value: spot
+    effect: NoSchedule
+
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+            - key: kubernetes.azure.com/scalesetpriority
+              operator: In
+              values:
+                - spot
