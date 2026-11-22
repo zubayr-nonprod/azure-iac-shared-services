@@ -4,10 +4,10 @@ variable "subscription_id" {
   default     = "d4e23489-0053-44b0-b6f5-efe3ab94b305"
 }
 
-variable "location" {
-  description = "Azure region. Prices and spot capacity vary by region, so choose deliberately and confirm your VM sizes are available there."
-  type        = string
-}
+# variable "location" {
+#   description = "Azure region. Prices and spot capacity vary by region, so choose deliberately and confirm your VM sizes are available there."
+#   type        = string
+# }
 
 variable "name_prefix" {
   description = "Prefix used for resource names (letters, digits and hyphens; keep it short)."

@@ -1,8 +1,8 @@
 # Copy to terraform.tfvars and fill in.
-subscription_id = "00000000-0000-0000-0000-000000000000"
-location        = "westeurope" # pick a region where your VM sizes and spot capacity are available
+# subscription_id = "00000000-0000-0000-0000-000000000000"
+# location        = "westeurope" # pick a region where your VM sizes and spot capacity are available
 
-name_prefix = "backstage-dev"
+# name_prefix = "ss"
 
 # Optional
 # kubernetes_version   = "1.33"
